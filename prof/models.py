@@ -1,13 +1,13 @@
 from django.db import models
 from  django.contrib.auth.models import  User
 from  django.forms import ModelForm
-
+#create title
 class Title(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return  str(self.title)
-
+# create name , description , time
 class Userpro(models.Model):
     name = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     description = models.TextField(max_length=250)
@@ -17,7 +17,7 @@ class Userpro(models.Model):
         return str(self.name)
 
 # Create your models here.
-
+# create a form for Post data
 class Pro(ModelForm):
     class META:
         models = Userpro
